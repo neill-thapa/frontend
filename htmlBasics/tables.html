@@ -1,538 +1,518 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Tables</title>
-        <link rel="icon" type="image/x-icon" href="images/fav.svg">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-                background-color: #0d0d0d;
-                color: #eaeaea;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <link rel="icon" type="image/x-icon" href="images/fav.svg">
 
-            h3 {
-                color: blue;
-            }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top left, #1a102e 0%, #05010a 40%, #000000 100%);
+            background-size: 200% 200%;
+            background-attachment: fixed;
+            color: #e6e9f0;
+        }
 
-            .table-1, .table-1 th, .table-1 tr, .table-1 td {
-                border: 2px solid rgb(61, 0, 167);
-            }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #8a8fa3;
+            font-size: 14px;
+        }
 
-            .table-2, .table-2 th, .table-2 tr, .table-2 td {
-                border: 2px solid white;
-                border-collapse: collapse;
-                color: white;
-            }
+        nav {
+            background-color: rgba(17, 17, 17, 0.3); /* fully transparent */
+            padding: 15px 30px;
+        }
 
-            .table-3, .table-3 th, .table-3 tr, .table-3 td {
-                border: 2px solid brown;
-            }
+        nav a {
+            display: inline-block;
+            color: #e6e9f0;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 8px 12px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
 
-            .table-4, .table-4 th, .table-4 tr, .table-4 td {
-                border: 2px solid navy;
-                border-collapse: collapse;
-            }
+        nav a:hover {
+            background-color: #00ff99;
+            color: rgba(20, 22, 40, 0.85);
+            border-radius: 5px;
+            transform: translateY(-5px);
+        }
 
-            .table-5, .table-5 th, .table-5 tr, .table-5 td {
-                border: 2px solid green;
-            }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
 
-            .table-5 th {
-                text-align: left;
-            }
+        hr {
+            border: none;
+            border-top: 3px solid rgba(138, 143, 163, 0.25);
+            margin: 50px 0;
+        }
 
-            .table-6, .table-6 th, .table-6 tr, .table-6 td {
-                border: 2px solid purple;
-                border-collapse: collapse;
-                text-align: center;
-            }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-            .table-7, .table-7 th, .table-7 tr, .table-7 td {
-                border: 2px solid red;
-                border-collapse: collapse;
-            }
+        h2 {
+            text-align: center;
+            color: #00ff99;
+            margin-top: 40px;
+        }
 
-            .table-7 th, .table-7 td {
-                padding: 5px;
-            }
+        .header {
+            margin-top: 50px;
+        }
 
-            .table-8, .table-8 th, .table-8 tr, .table-8 td {
-                border: 2px solid red;
-                border-collapse: collapse;
-            }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(20, 22, 40, 0.85);
+            margin-top: 15px;
+        }
 
-            .table-8 th, .table-8 td {
-                padding: 10px;
-            }
+        .table-types {
+            margin: 30px 0 60px;
+        }
 
-            .table-9, .table-9 th, .table-9 tr, .table-9 td {
-                border: 2px solid red;
-                border-collapse: collapse;
-            }
+        .padding-10 th, .padding-10 td {
+            padding: 10px;
+        }
 
-            .table-9 th, .table-9 td {
-                padding-top: 10px;
-                padding-bottom: 20px;
-                padding-left: 5px;
-                padding-right: 15px;
-            }
+        .padding-20 th, .padding-20 td {
+            padding: 20px;
+        }
 
-            .table-10, .table-10 th, .table-10 tr, .table-10 td {
-                border: 2px solid red;
-            }
+        .padding-custom th, .padding-custom td {
+            padding: 5px 15px 25px 35px;
+        }
 
-            .table-10 {
-                border-spacing: 20px;
-            }
+        .cell-spacing, .cell-spacing th, .cell-spacing td {
+            border: 1px solid rgba(138, 143, 163, 0.25);
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
 
-            .table-11, .table-11 th, .table-11 tr, .table-11 td {
-                border: 3px solid violet;
-                border-collapse: collapse;
-                text-align: center;
-            }
+        .column-width-60 th:first-child,
+        .column-width-60 td:first-child {
+            width: 60%;
+        }
 
-            .table-11 th, .table-11 td {
-                padding: 7px;
-            }
+        .row-height-30 {
+            height: 70px;
+        }
 
-            .table-12, .table-12 th, .table-12 tr, .table-12 td {
-                border: 3px solid violet;
-                border-collapse: collapse;
-                text-align: center;
-            }            
+        .left-header th {
+            text-align: left;
+        }
 
-            .table-12 th, .table-12 td {
-                padding: 7px;
-            }
+        caption {
+            caption-side: top;
+            padding: 10px;
+            font-size: 14px;
+            color: #e6e9f0;
+        }
 
-        </style>
-    </head>
-    <body>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="multimedia.html">Multimedia</a>
-            <a href="lists.html">Lists</a>
-            <a href="style.html">Style</a>
-            <a href="formatting.html">Text Formatting</a>
-            <a href="tables.html">Tables</a>
-        </nav>
+        th, td {
+            border: 1px solid rgba(138, 143, 163, 0.25);
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: rgba(26, 29, 55, 0.95);
+            color: #e6e9f0;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="lists.html">Lists</a>
+        <a href="tables.html">Tables</a>
+        <a href="style.html">Style</a>
+        <a href="formatting.html">Text Formatting</a>
+    </nav>
+
+    <div class="container">
+
+        <h1>Tables Demonstration</h1>
+
+        <div class="header">
+            <h2>A basic html table</h2>
+        </div>
+
+        <div class="table-types">
+            <table>
+                <caption>Famous Car Brands and Their Models</caption>
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>United States of America</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce</td>
+                    <td>
+                        <ul style="list-style-type: circle;">
+                            <li>Rolls Royce Phantom</li>
+                            <li>Rolls Royce Ghost</li>
+                            <li>Rolls Royce Cullinan</li>
+                        </ul>
+                    </td>
+                    <td>United Kingdom</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+                <tr>
+                    <td>Porsche</td>
+                    <td>Porsche 911</td>
+                    <td>Germany</td>
+                </tr>
+            </table>
+        </div>
 
         <hr>
 
-        <h1 style="text-align: center;"><u>Tables Demonstration</u></h1>
+        <div class="header">
+            <h2>HTML Table sizes</h2>
+        </div>
 
-        <h3><u>A basic html table:</u></h3>
-        <table style="width: 100%;" class="table-1">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>United States of America</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce</td>
-                <td>
-                <ul style="list-style-type: circle;">
-                    <li>Rolls Royce Phantom</li>
-                    <li>Rolls Royce Ghost</li>
-                    <li>Rolls Royce Cullinan</li>
-                </ul>
-                </td>
-                <td>United Kingdom</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-            <tr>
-                <td>Porsche</td>
-                <td>Porsche 911</td>
-                <td>Germany</td>
-            </tr>
-        </table>
-        
-        <br>
-        <hr>
-        <hr>
+        <div class="table-types">
+            <p><strong>Table with 100% width</strong></p>
+            <table>
+                <caption>This is the caption of the table</caption>
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>United States of America</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce</td>
+                    <td>
+                        <ul>
+                            <li>Rolls Royce Phantom</li>
+                            <li>Rolls Royce Ghost</li>
+                            <li>Rolls Royce Cullinan</li>
+                        </ul>
+                    </td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
+        <div class="table-types">
+            <p><strong>Table with first column at 60% width</strong></p>
+            <table class="column-width-60">
+                <caption>This is the caption of the table</caption>
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>United States of America</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce</td>
+                    <td>
+                        <ul>
+                            <li>Rolls Royce Phantom</li>
+                            <li>Rolls Royce Ghost</li>
+                            <li>Rolls Royce Cullinan</li>
+                        </ul>
+                    </td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <h3><u>A html table with extra tags</u></h3>
-        
-        <p><i>
-            - Includes extra tags like caption, colgroup, col<br>
-            - Merged or collapsed borders<br>
-            - Header row width is set, color is set via CSS
-        </i></p>
+        <div class="table-types">
+            <p><strong>Table with first row of 70px height</strong></p>
+            <table>
+                <caption>This is the caption of the table</caption>
+                <tr class="row-height-30">
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>United States of America</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce</td>
+                    <td>
+                        <ul>
+                            <li>Rolls Royce Phantom</li>
+                            <li>Rolls Royce Ghost</li>
+                            <li>Rolls Royce Cullinan</li>
+                        </ul>
+                    </td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <table style="width: 100%;" class="table-2">
-            <caption>This is the caption of the table</caption>
-            
-            <colgroup>
-                <col style="background-color: rgb(65, 64, 64);">
-                <col style="background-color: rgb(65, 64, 64);">
-                <col style="background-color: rgb(65, 64, 64);">
-            </colgroup>
-
-            <tr style="height: 35px;">
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>United States of America</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce</td>
-                <td>
-                <ul style="list-style-type: circle;">
-                    <li>Rolls Royce Phantom</li>
-                    <li>Rolls Royce Ghost</li>
-                    <li>Rolls Royce Cullinan</li>
-                </ul>
-                </td>
-                <td>United Kingdom</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-            <tr>
-                <td>Porsche</td>
-                <td>Porsche 911</td>
-                <td>Germany</td>
-            </tr>
-        </table>
-
-        <br>
-        <hr>
         <hr>
 
-        <h3><u>HTML Table Size</u></h3>
+        <div class="header">
+            <h2>HTML Table Headers</h2>
+        </div>
 
-        <p><b>Table with 100% width</b></p>
-        <table style="width: 100%;" class="table-3">
-            <caption>This is the caption of the table</caption>
+        <div class="table-types">
+            <p><strong>Vertical Table Header</strong></p>
+            <table>
+                <tr style="height: 35px;">
+                    <th>Company</th>
+                    <td>Mustang</td>
+                    <td>Bentley</td>
+                </tr>
+                <tr style="height: 35px;">
+                    <th>Car Model</th>
+                    <td>Mustang Mach 1</td>
+                    <td>Bentley Continental GT</td>
+                </tr>
+                <tr style="height: 35px;">
+                    <th>Country Origin</th>
+                    <td>USA</td>
+                    <td>UK</td>
+                </tr>
+            </table>
+        </div>
 
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>United States of America</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce</td>
-                <td>
-                <ul>
-                    <li>Rolls Royce Phantom</li>
-                    <li>Rolls Royce Ghost</li>
-                    <li>Rolls Royce Cullinan</li>
-                </ul>
-                </td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>        
+        <div class="table-types">
+            <p><strong>Table with left aligned headers</strong></p>
+            <table class="left-header">
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <br>
+        <div class="table-types">
+            <p><strong>Table with header for multiple columns</strong></p>
+            <table>
+                <caption>Luxury Car Brands with their models</caption>
+                <tr style="height: 35px;">
+                    <th colspan="2">Car Models</th>
+                    <th>Company</th>
+                </tr>
+                <tr>
+                    <td>Mustang Mach 1</td>
+                    <td>1965 Ford Mustang</td>
+                    <td>Mustang</td>
+                </tr>
+                <tr>
+                    <td>Bentley Continental GT</td>
+                    <td>Bentley Flying Spur</td>
+                    <td>Bentley</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce Phantom</td>
+                    <td>Rolls Royce Ghost</td>
+                    <td>Rolls Royce</td>
+                </tr>
+                <tr>
+                    <td>Mercedes Maybach</td>
+                    <td>Mercedes G Wagon</td>
+                    <td>Mercedes Benz</td>
+                </tr>
+            </table>
+        </div>
+
         <hr>
 
-        <p><b>Table with first column at 60% width</b></p>
-        <table style="width: 100%;" class="table-3">
-            <caption>This is the caption of the table</caption>
+        <div class="header">
+            <h2>HTML Table Padding and Spacing</h2>
+        </div>
 
-            <tr>
-                <th style="width: 60%;">Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>United States of America</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce</td>
-                <td>
-                <ul>
-                    <li>Rolls Royce Phantom</li>
-                    <li>Rolls Royce Ghost</li>
-                    <li>Rolls Royce Cullinan</li>
-                </ul>
-                </td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>        
+        <div class="table-types">
+            <p><strong>HTML Table Cell Padding: padding of 10px</strong></p>
+            <table class="padding-10">
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <br>
-        <hr>   
+        <div class="table-types">
+            <p><strong>HTML Table Cell Padding: padding of 20px</strong></p>
+            <table class="padding-20">
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <p><b>Table with first row of 70px height</b></p>
-        <table style="width: 100%;" class="table-3">
-            <caption>This is the caption of the table</caption>
+        <div class="table-types">
+            <p><strong>Different padding for all four sides: 5px 15px 25px 35px (top right bottom left)</strong></p>
+            <table class="padding-custom">
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-            <tr style="height: 70px;">
-                <th style="width: 60%;">Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>United States of America</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce</td>
-                <td>
-                <ul>
-                    <li>Rolls Royce Phantom</li>
-                    <li>Rolls Royce Ghost</li>
-                    <li>Rolls Royce Cullinan</li>
-                </ul>
-                </td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>        
+        <div class="table-types">
+            <p><strong>HTML Table Cell Spacing</strong></p>
+            <table class="cell-spacing">
+                <tr>
+                    <th>Company</th>
+                    <th>Car Model</th>
+                    <th>Country Origin</th>
+                </tr>
+                <tr>
+                    <td>Mustang</td>
+                    <td>Mustang Mach 1</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Bentley</td>
+                    <td>Bentley Continental GT</td>
+                    <td>United Kingdom</td>
+                </tr>
+            </table>
+        </div>
 
-        <br>
-        <hr>
-        <hr>
-
-        <h3><u>HTML Table Headers</u></h3>
-        <p><b>Vertical Table Header</b></p>
-
-        <table style="width: 100%;" class="table-4">
-            <tr style="height: 35px;">
-                <th>Company</th>
-                <td>Mustang</td>
-                <td>Bentley</td>
-            </tr>
-            <tr style="height: 35px;">
-                <th>Car Model</th>
-                <td>Mustang Mach 1</td>
-                <td>Bentley Continental GT</td>
-            </tr>
-            <tr style="height: 35px;">
-                <th>Country Origin</th>
-                <td>USA</td>
-                <td>UK</td>
-            </tr>
-        </table>
-            
-        <br>
-        <hr>
-        
-        <p><b>Table with left aligned headers</b></p>
-
-        <table style="width: 100%;" class="table-5">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>
-
-        <br>
         <hr>
 
-        <p><b>Table with header for multiple columns</b></p>
+        <div class="header">
+            <h2>HTML Table Colspan and Rowspan</h2>
+        </div>
 
-        <table style="width: 100%;" class="table-6">
-            <caption>Luxury Car Brands with their models</caption>
-            <tr style="height: 35px;">
-                <th colspan="2">Car Models</th>
-                <th>Company</th>
-            </tr>
-            <tr>
-                <td>Mustang Mach 1</td>
-                <td>1965 Ford Mustang</td>
-                <td>Mustang</td>
-            </tr>
-            <tr>
-                <td>Bentley Continental GT</td>
-                <td>Bentley Flying Spur</td>
-                <td>Bentley</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce Phantom</td>
-                <td>Rolls Royce Ghost</td>
-                <td>Rolls Royce</td>
-            </tr>
-            <tr>
-                <td>Mercedes Maybach</td>
-                <td>Mercedes G Wagon</td>
-                <td>Mercedes Benz</td>
-            </tr>
-        </table>
+        <div class="table-types">
+            <p><b>Cell that spand to two columns</b></p>
+            <table>
+                <caption>Luxury Car Brands with their models</caption>
+                <tr style="height: 50px;">
+                    <th colspan="2">Car Models</th>
+                    <th>Company</th>
+                </tr>
+                <tr>
+                    <td>Mustang Mach 1</td>
+                    <td>1965 Ford Mustang</td>
+                    <td>Mustang</td>
+                </tr>
+                <tr>
+                    <td>Bentley Continental GT</td>
+                    <td>Bentley Flying Spur</td>
+                    <td>Bentley</td>
+                </tr>
+                <tr>
+                    <td>Rolls Royce Phantom</td>
+                    <td>Rolls Royce Ghost</td>
+                    <td>Rolls Royce</td>
+                </tr>
+                <tr>
+                    <td>Mercedes Maybach</td>
+                    <td>Mercedes G Wagon</td>
+                    <td>Mercedes Benz</td>
+                </tr>
+            </table>
+        </div>
 
-        <br>
-        <hr>
-        <hr>
+        <div class="table-types">
+            <p><strong>Cell that span to two rows</strong></p>
+            <table style="width: 100%;" class="table-12">
+                <tr>
+                    <th>Company</th>
+                    <td>Mustang</td>
+                </tr>
+                <tr>
+                    <th rowspan="2">Car Models</th>
+                    <td>1965 Ford Mustang</td>
+                </tr>
+                <tr>
+                    <td>Mustang Mach 1</td>
+                </tr>
+            </table>
+        </div>
 
-        <h3><u>HTML Table Padding and Spacing</u></h3>
+    </div>
 
-        <p><b>HTML Table Cell Padding: padding of 5px</b></p>
+    <footer>
+        &copy; 2025 HTML Learning Project. All rights reserved.
+    </footer>
 
-        <table style="width: 100%;" class="table-7">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>
-
-        <br>
-        <hr>
-
-        <p><b>HTML Table Cell Padding: padding of 10px</b></p>
-
-        <table style="width: 100%;" class="table-8">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>
-
-        <br>
-        <hr>
-
-        <p><b>Different padding for all four sides</b></p>
-
-        <table style="width: 100%;" class="table-9">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>      
-        
-        <br>
-        <hr>
-
-        <p><b>HTML Table Cell Spacing</b></p>
-
-        <table style="width: 100%;" class="table-10">
-            <tr>
-                <th>Company</th>
-                <th>Car Model</th>
-                <th>Country Origin</th>
-            </tr>
-            <tr>
-                <td>Mustang</td>
-                <td>Mustang Mach 1</td>
-                <td>USA</td>
-            </tr>
-            <tr>
-                <td>Bentley</td>
-                <td>Bentley Continental GT</td>
-                <td>United Kingdom</td>
-            </tr>
-        </table>  
-
-        <br>
-        <hr>
-        <hr>
-
-        <h3><u>HTML Table Colspan and Rowspan</u></h3>
-        <p><b>Cell that spand to two columns</b></p>
-
-        <table style="width: 100%;" class="table-11">
-            <caption>Luxury Car Brands with their models</caption>
-            <tr style="height: 50px;">
-                <th colspan="2">Car Models</th>
-                <th>Company</th>
-            </tr>
-            <tr>
-                <td>Mustang Mach 1</td>
-                <td>1965 Ford Mustang</td>
-                <td>Mustang</td>
-            </tr>
-            <tr>
-                <td>Bentley Continental GT</td>
-                <td>Bentley Flying Spur</td>
-                <td>Bentley</td>
-            </tr>
-            <tr>
-                <td>Rolls Royce Phantom</td>
-                <td>Rolls Royce Ghost</td>
-                <td>Rolls Royce</td>
-            </tr>
-            <tr>
-                <td>Mercedes Maybach</td>
-                <td>Mercedes G Wagon</td>
-                <td>Mercedes Benz</td>
-            </tr>
-        </table>
-
-        <br>
-        <hr>
-
-        <p><b>Cell that spand to two rows</b></p>
-
-        <table style="width: 100%;" class="table-12">
-            <tr>
-                <th>Company</th>
-                <td>Mustang</td>
-            </tr>
-            <tr>
-                <th rowspan="2">Car Models</th>
-                <td>1965 Ford Mustang</td>
-            </tr>
-            <tr>
-                <td>Mustang Mach 1</td>
-            </tr>
-        </table>
-    </body>
+</body>
 </html>

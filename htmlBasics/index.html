@@ -6,21 +6,26 @@
     <link rel="icon" type="image/x-icon" href="images/fav.svg">
 
     <style>
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #0d0d0d;
-            color: #eaeaea;
+            background: radial-gradient(circle at top left, #1a102e 0%, #05010a 40%, #000000 100%);
+            background-size: 200% 200%;
+            background-attachment: fixed;
+            color: #e6e9f0;
         }
 
-        nav {
-            background-color: #111;
-            padding: 15px 30px;
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #8a8fa3;
+            font-size: 14px;
         }
 
         .container {
             max-width: 900px;
-            margin: 60px auto;
+            margin: 150px auto;
             padding: 20px;
             text-align: center;
         }
@@ -32,7 +37,7 @@
 
         .container p {
             font-size: 18px;
-            color: #bbbbbb;
+            color: #e6e9f0;
             margin-bottom: 40px;
         }
 
@@ -43,17 +48,15 @@
         }
 
         .page-card {
-            background-color: #1a1a1a;
+            display: block; /*make the link behave like a block*/
+            background-color: rgba(26, 29, 55, 0.95);
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #333;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .page-card a {
+            border: 1px solid rgba(138, 143, 163, 0.25);
             text-decoration: none;
-            color: #eaeaea;
+            color: #e6e9f0;
             font-size: 20px;
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .page-card:hover {
@@ -61,12 +64,6 @@
             border-color: #00ff99;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 14px;
-        }
     </style>
 </head>
 
@@ -80,26 +77,15 @@
         </p>
 
         <div class="pages">
-            <div class="page-card">
-                <a href="multimedia.html">🎵 Multimedia</a>
-            </div>
 
-            <div class="page-card">
-                <a href="style.html">🎨 Styling</a>
-            </div>
+            <a href="multimedia.html" class="page-card">Multimedia</a>
+            <a href="style.html" class="page-card">Styling</a>
+            <a href="formatting.html" class="page-card">Text Formatting</a>
+            <a href="lists.html" class="page-card">Lists</a>
+            <a href="tables.html" class="page-card">Tables</a>
 
-            <div class="page-card">
-                <a href="formatting.html">✍️ Text Formatting</a>
-            </div>
-
-            <div class="page-card">
-                <a href="lists.html">📋 Lists</a>
-            </div>
-
-            <div class="page-card">
-                <a href="tables.html">📊 Tables</a>
-            </div>
         </div>
+        
     </div>
 
     <footer>
