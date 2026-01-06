@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/fav.svg" />
+    <title>Forms</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: radial-gradient(
+          circle at top left,
+          #2a1b4f 0%,
+          #1a1236 25%,
+          #0d081e 50%,
+          #030008 75%,
+          #000000 100%
+        );
+        background-size: 120% 120%;
+        background-attachment: fixed;
+        color: #e6e9f0;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #8a8fa3;
+        font-size: 14px;
+      }
+
+      nav {
+        background-color: rgba(17, 17, 17, 0.3); /* fully transparent */
+        padding: 15px 30px;
+      }
+
+      nav a {
+        display: inline-block;
+        color: #e6e9f0;
+        text-decoration: none;
+        margin-right: 20px;
+        padding: 8px 12px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+      }
+
+      nav a:hover {
+        background-color: #00ff99;
+        color: rgba(20, 22, 40, 0.85);
+        border-radius: 10px;
+        transform: translateY(-5px);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      hr {
+        border: none;
+        border-top: 3px solid rgba(138, 143, 163, 0.25);
+        margin: 50px 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #00ff99;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="lists.html">Lists</a>
+      <a href="tables.html">Tables</a>
+      <a href="style.html">Style</a>
+      <a href="formatting.html">Text Formatting</a>
+      <a href="forms.html">Forms</a>
+      <a href="semantic.html">Semantic</a>
+      <a href="canvas.html">Canvas</a>
+    </nav>
+
+    <div class="container">
+      <h1>Forms Demonstration</h1>
+
+      <div class="header">
+        <h2>Basic HTML Forms</h2>
+      </div>
+
+      <div class="types">
+        <p><strong>Text Fields</strong></p>
+        <p>
+          Form with simple text input. The default width of the input fields is
+          20 characters.
+        </p>
+
+        <form onsubmit="handleSubmit(event)">
+          <label for="fname">First Name:</label><br />
+          <input
+            type="text"
+            id="fname"
+            placeholder="Your first name"
+            name="fname"
+          /><br /><br />
+          <label for="lname">Last Name:</label><br />
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            value="Example"
+          /><br /><br />
+          <label for="password">Password</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Must contain 6-15 characters"
+          /><br /><br />
+          <label for="email">Enter your email:</label><br />
+          <input type="email" id="email" name="email" /><br /><br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>Radio Buttons</strong></p>
+        <form onsubmit="handleRadioForm(event)">
+          <input type="radio" id="mercedes" name="fav_car" value="Mercedes" />
+          <label for="mercedes">Mercedes</label><br />
+          <input
+            type="radio"
+            id="rollsroyce"
+            name="fav_car"
+            value="Rolls Royce"
+          />
+          <label for="rollsroyce">Rolls Royce</label><br />
+          <input type="radio" id="mustang" name="fav_car" value="Mustang" />
+          <label for="mustang">Mustang</label><br /><br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>Checkboxes</strong></p>
+        <p>Q. Which of the following do you have?</p>
+        <form action="index.html" method="get">
+          <input
+            type="checkbox"
+            id="vehicle"
+            name="vehicle1"
+            value="Mercedes"
+          />
+          <label for="vehicle1">Mustang Mach 1</label><br />
+          <input
+            type="checkbox"
+            id="vehicle"
+            name="vehicle2"
+            value="Rolls Royce"
+          />
+          <label for="vehicle2">Rolls Royce Cullinan</label><br />
+          <input type="checkbox" id="vehicle" name="vehicle3" value="Mustang" />
+          <label for="vehicle3">Mercedes G Wagon</label><br /><br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="header">
+        <h2>HTML Form ELements</h2>
+      </div>
+
+      <div class="types">
+        <p><strong>The 'select' element</strong></p>
+        <form>
+          <label for="cars">Choose a car:</label>
+          <select id="cars" name="cars">
+            <option selected>None</option>
+            <option value="rollsroyce">Rolls Royce</option>
+            <option value="mustang">Mustang</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="bentley">Bentley</option>
+          </select>
+          <input type="submit" />
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>Visible values using size attribute</strong></p>
+        <form>
+          <label for="cars">Choose a car:</label>
+          <select id="cars" name="cars" size="4">
+            <option value="rollsroyce">Rolls Royce</option>
+            <option value="mustang">Mustang</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="bentley">Bentley</option>
+          </select>
+          <input type="submit" />
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>Multiple selections using multiple attribute</strong></p>
+        <form>
+          <label for="cars">Choose a car:</label>
+          <select id="cars" name="cars" size="4" multiple>
+            <option value="rollsroyce">Rolls Royce</option>
+            <option value="mustang">Mustang</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="bentley">Bentley</option>
+          </select>
+          <input type="submit" />
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>The 'textarea' element</strong></p>
+        <form>
+          <textarea
+            name="message"
+            rows="5"
+            cols="50"
+            placeholder="Write your feedback here..."
+          ></textarea>
+          <br /><br />
+          <input type="submit" />
+        </form>
+      </div>
+
+      <div class="types">
+        <p><strong>The 'button' element</strong></p>
+        <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+      </div>
+
+      <div class="header">
+        <h2>Extra input types</h2>
+      </div>
+
+      <div class="types">
+        <p><strong>Input type color</strong></p>
+        <form>
+          <label for="favcolor">Select your favorite color:</label>
+          <input type="color" id="favcolor" name="favcolor" value="#ff0000" />
+          <input type="submit" value="Submit" />
+        </form>
+
+        <p><strong>Input type date</strong></p>
+        <form>
+          <label for="birthday">Birthday:</label>
+          <input type="date" id="birthday" name="birthday" />
+          <input type="submit" value="Submit" />
+        </form>
+
+        <p><strong>Input type date with time</strong></p>
+        <form>
+          <label for="birthdaytime">Birthday (date and time):</label>
+          <input type="datetime-local" id="birthdaytime" name="birthdaytime" />
+        </form>
+
+        <p><strong>Input type file</strong></p>
+        <form>
+          <label for="myfile">Select a file:</label>
+          <input type="file" id="myfile" name="myfile" />
+        </form>
+      </div>
+    </div>
+
+    <footer>&copy; 2025 HTML Learning Project. All rights reserved.</footer>
+
+    <script>
+      // handle submit
+      function handleSubmit(event) {
+        event.preventDefault(); // stop page refresh
+
+        const fname = document.getElementById("fname").value;
+        const lname = document.getElementById("lname").value;
+
+        alert(`First Name: ${fname}\nLast Name: ${lname}`);
+      }
+
+      // handle radio button
+      function handleRadioForm(event) {
+        event.preventDefault();
+
+        const selectedCar = document.querySelector(
+          'input[name="fav_car"]:checked'
+        );
+
+        if (!selectedCar) {
+          alert("Please select a car");
+          return;
+        }
+        alert(`Selected Car: ${selectedCar.value}`);
+      }
+    </script>
+  </body>
+</html>

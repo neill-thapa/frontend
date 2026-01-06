@@ -1,171 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multimedia</title>
-    <link rel="icon" type="image/x-icon" href="images/fav.svg">
+    <link rel="icon" type="image/x-icon" href="images/fav.svg" />
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: radial-gradient(circle at top left, #1a102e 0%, #05010a 40%, #000000 100%);
-            background-size: 200% 200%;
-            background-attachment: fixed;
-            color: #e6e9f0;
-        }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: radial-gradient(
+          circle at top left,
+          #2a1b4f 0%,
+          #1a1236 25%,
+          #0d081e 50%,
+          #030008 75%,
+          #000000 100%
+        );
+        background-size: 120% 120%;
+        background-attachment: fixed;
+        color: #e6e9f0;
+      }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #8a8fa3;
-            font-size: 14px;
-        }
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #8a8fa3;
+        font-size: 14px;
+      }
 
-        nav {
-            background-color: rgba(17, 17, 17, 0.3); /* fully transparent */
-            padding: 15px 30px;
-        }
+      nav {
+        background-color: rgba(17, 17, 17, 0.3); /* fully transparent */
+        padding: 15px 30px;
+      }
 
-        nav a {
-            display: inline-block; /*<-- allows link to act like a box*/
-            color: #e6e9f0;
-            text-decoration: none;
-            margin-right: 20px;
-            padding: 8px 12px;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
+      nav a {
+        display: inline-block; /*<-- allows link to act like a box*/
+        color: #e6e9f0;
+        text-decoration: none;
+        margin-right: 20px;
+        margin-bottom: 15px;
+        padding: 8px 12px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+      }
 
-        nav a:hover {
-            background-color: #00ff99;
-            color: rgba(20, 22, 40, 0.85);
-            border-radius: 5px;
-            transform: translateY(-5px);
-        }
+      nav a:hover {
+        background-color: #00ff99;
+        color: rgba(20, 22, 40, 0.85);
+        border-radius: 10px;
+        transform: translateY(-5px);
+      }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+      }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
 
-        h2 {
-            color: #00ff99;
-            margin-top: 30px;
-        }
+      h2 {
+        color: #00ff99;
+        margin-top: 30px;
+      }
 
-        .media-block {
-            margin-bottom: 30px;
-        }
+      .media-block {
+        margin-bottom: 30px;
+      }
 
-        .media-block img {
-            display: block;
-            margin: 10px 0;
-        }
+      .media-block img {
+        display: block;
+        margin: 10px 0;
+      }
 
-        video, audio {
-            width: 100%;
-            margin-top: 10px;
-        }
+      video,
+      audio {
+        width: 100%;
+        margin-top: 10px;
+      }
 
-        hr {
-            border: none;
-            border-top: 3px solid rgba(138, 143, 163, 0.25);
-            margin: 50px 0;
-        }
+      hr {
+        border: none;
+        border-top: 3px solid rgba(138, 143, 163, 0.25);
+        margin: 50px 0;
+      }
 
+      .media-block iframe {
+        width: 100%;
+        height: 500px;
+        margin-top: 10px 0;
+        border: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="multimedia.html">Multimedia</a>
-        <a href="lists.html">Lists</a>
-        <a href="tables.html">Tables</a>
-        <a href="style.html">Style</a>
-        <a href="formatting.html">Text Formatting</a>
+      <a href="index.html">Home</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="lists.html">Lists</a>
+      <a href="tables.html">Tables</a>
+      <a href="style.html">Style</a>
+      <a href="formatting.html">Text Formatting</a>
+      <a href="forms.html">Forms</a>
+      <a href="semantic.html">Semantic</a>
+      <a href="canvas.html">Canvas</a>
     </nav>
 
     <div class="container">
+      <h1>Image Examples</h1>
 
-        <h1>Image Examples</h1>
+      <div class="media-block">
+        <h2>Image example</h2>
+        <img
+          src="images/facebook.png"
+          width="50"
+          height="50"
+          alt="Facebook logo"
+        />
+        <p><strong>Facebook</strong></p>
+      </div>
 
-        <div class="media-block">
-            <h2>Image example</h2>
-            <img src="images/facebook.png" width="50" height="50" alt="Facebook logo">
-            <p><strong>Facebook</strong></p>
-        </div>
+      <div class="media-block">
+        <h2>Image with alternative text</h2>
+        <img
+          src="images/faceboo.png"
+          width="50"
+          height="50"
+          alt="Facebook logo"
+        />
+        <p><strong>Facebook</strong></p>
+      </div>
 
-        <div class="media-block">
-            <h2>Image with alternative text</h2>
-            <img src="images/faceboo.png" width="50" height="50" alt="Facebook logo">
-            <p><strong>Facebook</strong></p>
-        </div>
+      <div class="media-block">
+        <h2>Image with hyperlink</h2>
+        <a href="https://www.facebook.com/">
+          <img
+            src="images/facebook.png"
+            width="50"
+            height="50"
+            alt="Facebook logo"
+          />
+        </a>
+        <p><strong>Facebook</strong></p>
+      </div>
 
-        <div class="media-block">
-            <h2>Image with hyperlink</h2>
-            <a href="https://www.facebook.com/">
-                <img src="images/facebook.png" width="50" height="50" alt="Facebook logo">
-            </a>
-            <p><strong>Facebook</strong></p>
-        </div>
+      <hr />
 
-        <hr>
+      <h1>Video Examples</h1>
 
-        <h1>Video Examples</h1>
+      <div class="media-block">
+        <h2>Night Sky</h2>
+        <p><strong>No autoplay but loop</strong></p>
+        <video controls loop>
+          <source src="video/sky.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-        <div class="media-block">
-            <h2>Night Sky</h2>
-            <p><strong>No autoplay but loop</strong></p>
-            <video controls loop>
-                <source src="video/sky.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+      <div class="media-block">
+        <h2>Nature</h2>
+        <p><strong>Autoplay + loop</strong></p>
+        <video controls autoplay loop muted>
+          <source src="video/nature.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-        <div class="media-block">
-            <h2>Nature</h2>
-            <p><strong>Autoplay + loop</strong></p>
-            <video controls autoplay loop muted>
-                <source src="video/nature.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+      <div class="media-block">
+        <h2>Video in YouTube</h2>
+        <p><strong>Only link</strong></p>
+        <a
+          href="https://www.youtube.com/watch?v=H895ZcG13Hg&t=346s"
+          target="_blank"
+          >Monk Mode by Iman Gadzhi - Watch on YouTube</a
+        >
+      </div>
 
-        <hr>
+      <div class="media-block">
+        <h2>Video in YouTube</h2>
+        <p><strong>Video of YouTube displayed on this website</strong></p>
+        <iframe src="https://www.youtube.com/embed/H895ZcG13Hg"></iframe>
+      </div>
 
-        <h1>Audio Examples</h1>
+      <hr />
 
-        <div class="media-block">
-            <h2>Motivation</h2>
-            <p><strong>Autoplay + loop</strong></p>
-            <audio controls autoplay loop muted>
-                <source src="audio/motivation.mp3" type="audio/mpeg">
-                Your browser does not support the audio tag.
-            </audio>
-        </div>
+      <h1>Audio Examples</h1>
 
-        <div class="media-block">
-            <h2>Motivation (no autoplay)</h2>
-            <audio controls>
-                <source src="audio/motivation.mp3" type="audio/mpeg">
-                Your browser does not support the audio tag.
-            </audio>
-        </div>
+      <div class="media-block">
+        <h2>Motivation</h2>
+        <p><strong>Autoplay + loop</strong></p>
+        <audio controls autoplay loop muted>
+          <source src="audio/motivation.mp3" type="audio/mpeg" />
+          Your browser does not support the audio tag.
+        </audio>
+      </div>
 
+      <div class="media-block">
+        <h2>Motivation (no autoplay)</h2>
+        <audio controls>
+          <source src="audio/motivation.mp3" type="audio/mpeg" />
+          Your browser does not support the audio tag.
+        </audio>
+      </div>
     </div>
 
-    <footer>
-        &copy; 2025 HTML Learning Project. All rights reserved.
-    </footer>
-
-</body>
+    <footer>&copy; 2025 HTML Learning Project. All rights reserved.</footer>
+  </body>
 </html>
